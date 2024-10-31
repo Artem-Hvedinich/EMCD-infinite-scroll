@@ -1,0 +1,124 @@
+@use './mixins' as *;
+@use './colors' as *;
+
+* {
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+  font-optical-sizing: auto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 360px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background: $blue;
+  min-width: 360px;
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 360px;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 1024px;
+    padding: 10px 16px;
+
+    @include media-breakpoint-up(desktop_wide) {
+      max-width: 1440px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  & .quantity-switch {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &--text {
+      color: $white;
+      font-weight: 700;
+    }
+
+    input {
+      width: 60px;
+      border: 1px solid $success-200;
+      border-radius: 4px;
+      padding: 0 8px;
+      height: 20px;
+    }
+
+    button {
+      background: $white;
+      border: 1px solid $success-200;
+      border-radius: 4px;
+      padding: 0 8px;
+      color: $blue;
+      cursor: pointer;
+    }
+  }
+
+  & .input-container {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.users {
+  display: grid;
+  gap: 8px;
+  padding: 0 8px;
+  margin-top: 76px;
+  width: 100%;
+  max-width: 1024px;
+
+  @include media-breakpoint-up(mobile_520) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include media-breakpoint-up(mobile_780) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include media-breakpoint-up(desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include media-breakpoint-up(desktop_wide) {
+    max-width: 1440px;
+    grid-template-columns: repeat(6, 230px);
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+
+  &-text {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
