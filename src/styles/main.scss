@@ -1,6 +1,7 @@
-@use './mixins' as *;
-@use './colors' as *;
+@use './mixins' as *; // Import mixins from the mixins file
+@use './colors' as *; // Import colors from the colors file
 
+// Global styles for all elements
 * {
   box-sizing: border-box;
   font-family: Inter, sans-serif;

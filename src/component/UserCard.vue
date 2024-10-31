@@ -6,13 +6,14 @@
     </li>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import {toRef} from "vue";
-import {User} from "~/types";
 
-const props = defineProps<{ user: User }>();
+// Define props to receive user data object
+const props = defineProps({
+    user: Object
+});
+
+// Create a reactive reference to 'user' prop
 const user = toRef(props, "user");
 </script>
-<style lang="scss">
-
-</style>

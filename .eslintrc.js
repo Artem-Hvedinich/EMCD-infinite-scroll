@@ -5,24 +5,18 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        'plugin:@typescript-eslint/recommended',
         'plugin:vue/vue3-recommended',
         'prettier',
     ],
     parser: 'vue-eslint-parser',
     parserOptions: {
-        parser: '@typescript-eslint/parser',
         ecmaVersion: 2020,
         sourceType: 'module',
     },
     plugins: [
-        '@typescript-eslint',
         'vue',
     ],
     rules: {
-        '@typescript-eslint/no-unused-vars': ['warn'],
-        '@typescript-eslint/no-explicit-any': 'warn',
-        '@typescript-eslint/explicit-module-boundary-types': 'off',
         'vue/no-unused-components': 'warn',
 
         'prettier/prettier': [

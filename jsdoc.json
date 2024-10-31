@@ -1,23 +1,18 @@
 {
-  "tags": {
-    "allowUnknownTags": [
-      "optional",
-      "component"
-    ]
-  },
-  "plugins": [
-    "node_modules/better-docs/typescript",
-    "node_modules/better-docs/component"
-  ],
-  "source": {
-    "includePattern": "\\.(jsx|js|ts|tsx|vue$)$",
-    "include": [
-      "./src"
-    ]
-  },
+//  "plugins": [
+//    "node_modules/jsdoc-vuejs"
+//  ],
   "opts": {
     "destination": "./docs",
-    "recurse": true,
-    "template": "node_modules/better-docs"
+    "recurse": true
+  },
+  "source": {
+    "includePattern": ".+\\.(js|vue)$",
+    "include": [
+      "src"
+    ]
+  },
+  "tags": {
+    "allowUnknownTags": true
   }
 }

@@ -1,39 +1,51 @@
 @use "sass:map";
 @use "sass:list";
-@import "./breakpoints";
+@import "breakpoints";
 
+// Mixin to create a media query for minimum breakpoint
 @mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  // Get the minimum width for the specified breakpoint
   $min: breakpoint-min($name, $breakpoints);
 
+  // If a minimum width is found, apply the media query
   @if $min {
     @media (min-width: $min) {
-      @content;
+      @content; // Include the content defined within the mixin
     }
   } @else {
-    @content;
+    @content; // If no minimum width is found, apply content directly
   }
 }
 
+// Mixin to create a media query for maximum breakpoint
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  // Get the maximum width for the specified breakpoint
   $max: breakpoint-max($name, $breakpoints);
 
+  // If a maximum width is found, apply the media query
   @if $max {
     @media (max-width: $max) {
-      @content;
+      @content; // Include the content defined within the mixin
     }
   } @else {
-    @content;
+    @content; // If no maximum width is found, apply content directly
   }
 }
 
+// Function to get the minimum breakpoint value
 @function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  // Retrieve the minimum value from the breakpoints map
   $min: map.get($breakpoints, $name);
 
+  // Return the minimum value if it's not zero, otherwise return null
   @return if($min != 0, $min, null);
 }
 
+// Function to get the maximum breakpoint value
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  // Retrieve the maximum value from the breakpoints map
   $max: map.get($breakpoints, $name);
 
+  // Return the maximum value minus a small amount if it's greater than zero, otherwise return null
   @return if($max and $max > 0, $max - 0.02, null);
 }
